@@ -187,15 +187,13 @@ i{
     top:50%;
     left: 39%;
     transform: translate(-50%,-50%);
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-    background: url(./img/upload.png) no-repeat;
+    font-size: 1em;
+    color: var(--dashcolor);
 }
 .page4 .upload span{
     position: absolute;
     top:50%;
-    left: 55%;
+    left: 53%;
     transform: translate(-50%,-50%);
     color: var(--dashcolor);
 }
