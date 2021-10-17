@@ -1,4 +1,5 @@
 @import "./css/accent.css";
+@import "./css/font.css";
 html,
 body{
     margin: 0;
@@ -45,7 +46,6 @@ header p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 3.5em 0;
 }
 .page1,.page2,.page3,.page4{
     box-shadow: 0 0.25em 0.5em 0 var(--shadow);
@@ -55,8 +55,17 @@ header p{
 .page1,.page2,.page3,.page4:hover{
     box-shadow: 0 0.5em 1em 0 var(--shadow);
 }
-
+i{
+    color:var(--red);
+}
+.show{
+    display: inline-block;
+}
 /* page1 style */
+.page1{
+    margin: 2em 0 0.5em 0;
+    padding: 1em 0;
+}
 .page1 .question{
     margin: 1.7em 6em 1.7em 4em;
 }
@@ -83,6 +92,9 @@ header p{
     color: var(--fontcolor);
     text-align: center;
 }
+.changeColor{
+    background-color: var(--dashcolor);
+}
 .page1 .question ul li:hover{
     cursor: pointer;
     background-color: var(--dashcolor);
@@ -103,7 +115,8 @@ header p{
 
 /* page2 style */
 .page2{
-    padding: 1em 3em;
+    margin: 2em 0 0.5em 0;
+    padding: 1.8em 3em;
 }
 .page2 .question{
     margin: 1em 0 1.8em 0;
@@ -123,11 +136,9 @@ header p{
 }
 
 /* page3 style */
-.page{
-    padding: 1em 0;
-}
 .page3{
-    padding: 1em 3em;
+    margin: 2em 0 0.5em 0;
+    padding: 1.8em 3em;
 }
 .page3 .question{
     margin: 1em 0 1.5em 0;
@@ -147,11 +158,13 @@ header p{
 }
 .page3 .question ul li:hover{
     cursor: pointer;
+    background-color: var(--dashcolor);
     border: 1px solid var(--accent);
 }
 
 /* page4 style */
 .page4{
+    margin: 1em 0 0 0;
     padding: 0 3em;
 }
 .page4 .question{

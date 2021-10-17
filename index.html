@@ -23,28 +23,32 @@
                             <span class="star">*</span>
                             <span class="answerTitle">姓&nbsp;&nbsp;&nbsp;&nbsp;名:</span> 
                         </div>
-                    <input type="text"class="inputContent" placeholder="请输入2～10个字符"/>
+                    <input type="text"class="inputContent" ref="name" v-model="info.name" placeholder="请输入2～20个字符"/>
+                    <i class="fa fa-times" id="name" style="display: none;"></i>
                    </div> 
                    <div class="question">
                         <div class="title">
                             <span class="star">*</span>
                             <span class="answerTitle">电&nbsp;&nbsp;&nbsp;&nbsp;话:</span>
                         </div>
-                        <input type="text" class="inputContent" placeholder="请输入11位数字"/>
+                        <input type="text" class="inputContent" ref="phone" v-model="info.phone" placeholder="请输入11位数字"/>
+                        <i class="fa fa-times" id="phone" style="display: none;"></i>
                     </div> 
                     <div class="question">
                         <div class="title">
                             <span class="star">*</span>
                             <span class="answerTitle">邮&nbsp;&nbsp;&nbsp;&nbsp;箱:</span>
                         </div>
-                        <input type="text" class="inputContent" placeholder="请输入您的常用邮箱"/>
+                        <input type="text" class="inputContent" ref="email" v-model="info.email" placeholder="请输入您的常用邮箱"/>
+                        <i class="fa fa-times" id="email" style="display: none;"></i>
                     </div> 
                     <div class="question">
                         <div class="title">
                             <span class="star">*</span>
                             <span class="answerTitle">学&nbsp;&nbsp;&nbsp;&nbsp;校:</span>    
                         </div>
-                    <input type="text" class="inputContent" placeholder="请输入你所在的学校或单位"/>
+                    <input type="text" class="inputContent" ref="school" v-model="info.school" placeholder="请输入你所在的学校或单位"/>
+                    <i class="fa fa-times" id="school" style="display: none;"></i>
                    </div> 
                    <div class="question">
                         <div class="title">
@@ -52,12 +56,13 @@
                             <span class="answerTitle">身&nbsp;&nbsp;&nbsp;&nbsp;份:</span>
                         </div>
                         <ul style="display: inline-block;">
-                            <li @click="acquireTec()">
+                            <li :class="isTeacher?'changeColor':''"  @click="acquireTec()">
                                 老师
                             </li>
-                            <li @click="acquireStu()">
+                            <li :class="isStudent?'changeColor':''"  @click="acquireStu()">
                                 学生
                             </li>
+                            <i class="fa fa-times" id="identity" style="display: none;"></i>
                         </ul>
                     </div> 
                 </section>
@@ -71,13 +76,13 @@
                             <div class="title">
                                 <span class="answerTitle">您所教授的相关课程:</span> 
                             </div>
-                        <textarea cols="60" rows="5"></textarea>
+                        <textarea id="course" cols="60" rows="5" ref="course" v-model="info_tec.course"></textarea>
                         </div>
                         <div class="question">
                             <div class="title">
                                 <span class="answerTitle">您辅导学生参加过的比赛（请注明比赛名称、参加时间和获奖名次):</span> 
                             </div>
-                        <textarea cols="60" rows="5"></textarea>
+                        <textarea id="contest" cols="60" rows="5" ref="contest" v-model="info_tec.contest"></textarea>
                        </div> 
                     </section>
                     <div style="display: flex;flex-direction: row;">
@@ -93,20 +98,20 @@
                             <div class="title">
                                 <span class="answerTitle">在读年级:</span> 
                             </div>
-                        <input type="text"/>
+                        <input type="text" ref="grade" v-model="info_stu.grade"/>
                         </div>
                         <div class="question">
                             <div class="title">
                                 <span class="answerTitle">报名来源:</span>
                             </div>
                             <ul>
-                                <li>
+                                <li :class="info_stu.recommend=='教师推荐'?'changeColor':''" @click="recommendTec()">
                                     教师推荐
                                 </li>
-                                <li>
+                                <li :class="info_stu.recommend=='同学推荐'?'changeColor':''" @click="recommendStu()">
                                     同学推荐
                                 </li>
-                                <li>
+                                <li :class="info_stu.recommend=='其他途径'?'changeColor':''" @click="recommend()">
                                     其他途径
                                 </li>
                             </ul>
@@ -115,7 +120,7 @@
                             <div class="title">
                                 <span class="answerTitle">上过哪些与“一生一芯”计划相关的课程，如数字电路、组成原理、体系结构等:</span> 
                             </div>
-                        <textarea cols="67" rows="5"></textarea>
+                        <textarea cols="67" rows="5" ref="subject" v-model="info_stu.subject"></textarea>
                        </div> 
                     </section>
                     <div style="display: flex;flex-direction: row;">
@@ -131,38 +136,39 @@
                                 <span class="answerTitle">对“一生一芯”计划的哪些部分比较感兴趣 :</span> 
                             </div>
                             <div class="option">
-                                <input type="checkbox" id="structure" value="体系结构设计">
+                                <input type="checkbox" id="structure" value="体系结构设计" v-model="info_last.interest">
                                 <label for="structure">体系结构设计</label>
                             </div>
                             <div class="option">
-                                <input type="checkbox" id="rtl" value="RTL开发和验证">
+                                <input type="checkbox" id="rtl" value="RTL开发和验证" v-model="info_last.interest">
                                 <label for="rtl">RTL开发和验证</label>
                             </div>
                             <div class="option">
-                                <input type="checkbox" id="soc" value="SoC集成和验证">
+                                <input type="checkbox" id="soc" value="SoC集成和验证" v-model="info_last.interest">
                                 <label for="soc">SoC集成和验证</label>
                             </div>
                             <div class="option">
-                                <input type="checkbox" id="ic" value="IC后端设计">
+                                <input type="checkbox" id="ic" value="IC后端设计" v-model="info_last.interest">
                                 <label for="ic">IC后端设计</label>
                             </div>
                             <div class="option">
-                                <input type="checkbox" id="etc" value="其他" >
+                                <input type="checkbox" id="etc" value="其他"  v-model="info_last.interest">
                                 <label for="etc">其他</label>
-                                <input type="text"/>
+                                <input type="text" v-model="otherInterset"/>
                             </div>
                         </div>
                         <div class="question">
                             <div class="title">
                                 <span class="answerTitle">参加“一生一芯”计划预期想要获得什么样的提升和成果:</span> 
                             </div>
-                            <textarea cols="82" rows="5"></textarea>
+                            <textarea id="achievement" cols="82" rows="5" ref="achievement" v-model="info_last.achievement"></textarea>
                        </div> 
-                       <div class="question">
+                       <div class="question" >
                         <div class="title">
                             <span class="answerTitle">请上传简历，或发送简历到 opensource-talents@pcl.ac.cn，格式为【一生一芯+名字+学校】:</span>
                         </div>
-                        <div class="upload">
+                        <input type="file" id="up_file" style="display:none">
+                        <div class="upload" @click="uploadFile()">
                             <i></i>
                             <span>选择文件(最大限30M)</span>
                         </div>
@@ -170,7 +176,7 @@
                     </section>
                     <div style="display: flex;flex-direction: row;">
                         <button class="up_button" @click="backup()">上一步</button>
-                        <button class="down_button">提交</button>
+                        <button class="down_button" @click="submit()">提交</button>
                     </div>
                 </div>            
             </div>
