@@ -85,6 +85,7 @@ header p{
 }
 .page1 .question ul li:hover{
     cursor: pointer;
+    background-color: var(--dashcolor);
     border: 1px solid var(--accent);
 }
 .page1 .question ul li:first-child{

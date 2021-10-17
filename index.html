@@ -52,10 +52,10 @@
                             <span class="answerTitle">身&nbsp;&nbsp;&nbsp;&nbsp;份:</span>
                         </div>
                         <ul style="display: inline-block;">
-                            <li>
+                            <li @click="acquireTec()">
                                 老师
                             </li>
-                            <li>
+                            <li @click="acquireStu()">
                                 学生
                             </li>
                         </ul>
@@ -63,7 +63,9 @@
                 </section>
                 <button class="buttonClick" @click="nextpage2()">下一步</button>
                 </div>
-                <div class="page" v-if="isShow_page2">
+
+
+                <div class="page" v-if="isShow_page2 && isTeacher">
                     <section class="page2">
                         <div class="question">
                             <div class="title">
@@ -79,11 +81,13 @@
                        </div> 
                     </section>
                     <div style="display: flex;flex-direction: row;">
-                        <button class="up_button">上一步</button>
-                        <button class="down_button">下一步</button>
+                        <button class="up_button" @click="back()">上一步</button>
+                        <button class="down_button" @click="nextpage4()">下一步</button>
                     </div>
                 </div>
-                <div class="page" v-if="isShow_page3">
+
+
+                <div class="page" v-if="isShow_page3 && isStudent">
                     <section class="page3">
                         <div class="question">
                             <div class="title">
@@ -115,8 +119,8 @@
                        </div> 
                     </section>
                     <div style="display: flex;flex-direction: row;">
-                        <button class="up_button">上一步</button>
-                        <button class="down_button">下一步</button>
+                        <button class="up_button" @click="back()">上一步</button>
+                        <button class="down_button" @click="nextpage4()">下一步</button>
                     </div>
                 </div>
 
@@ -165,13 +169,10 @@
                     </div>
                     </section>
                     <div style="display: flex;flex-direction: row;">
-                        <button class="up_button">上一步</button>
+                        <button class="up_button" @click="backup()">上一步</button>
                         <button class="down_button">提交</button>
                     </div>
-                </div>
-
-
-                
+                </div>            
             </div>
         </div>
     </div>
