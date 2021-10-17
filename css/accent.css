@@ -1,0 +1,11 @@
+:root{
+    --bodybgc:#dbdbdb;
+    --mainbgc:#ffffff;
+    --accent: #1b4a81;
+    --accent-bright: #2d7ad2;
+    --fontcolor: #555555;
+    --dashcolor:#cccccc;
+    --red:#ff0000;
+    --shadow:rgba(0,0,0,0.2);
+    --bordercolor:#000;
+}

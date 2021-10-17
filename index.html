@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一生一芯计划报名表</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="questionnaire">
+        <div class="main">
+            <header style="padding-top: 1em;">
+                <img src="./img/YSYX.png" alt="" style="height: 2em;">
+                <h1>第三期“一生一芯”计划报名表</h1>
+                <p>您好，这是一份关于【第三期“一生一芯”计划】的报名表，欢迎踊跃报名！</p>
+            </header>
+            <div class="content">
+                <div class="page" v-if="isShow_page1">
+                <section class="page1">
+                   <div class="question">
+                        <div class="title">
+                            <span class="star">*</span>
+                            <span class="answerTitle">姓&nbsp;&nbsp;&nbsp;&nbsp;名:</span> 
+                        </div>
+                    <input type="text"class="inputContent" placeholder="请输入2～10个字符"/>
+                   </div> 
+                   <div class="question">
+                        <div class="title">
+                            <span class="star">*</span>
+                            <span class="answerTitle">电&nbsp;&nbsp;&nbsp;&nbsp;话:</span>
+                        </div>
+                        <input type="text" class="inputContent" placeholder="请输入11位数字"/>
+                    </div> 
+                    <div class="question">
+                        <div class="title">
+                            <span class="star">*</span>
+                            <span class="answerTitle">邮&nbsp;&nbsp;&nbsp;&nbsp;箱:</span>
+                        </div>
+                        <input type="text" class="inputContent" placeholder="请输入您的常用邮箱"/>
+                    </div> 
+                    <div class="question">
+                        <div class="title">
+                            <span class="star">*</span>
+                            <span class="answerTitle">学&nbsp;&nbsp;&nbsp;&nbsp;校:</span>    
+                        </div>
+                    <input type="text" class="inputContent" placeholder="请输入你所在的学校或单位"/>
+                   </div> 
+                   <div class="question">
+                        <div class="title">
+                            <span class="star">*</span>
+                            <span class="answerTitle">身&nbsp;&nbsp;&nbsp;&nbsp;份:</span>
+                        </div>
+                        <ul style="display: inline-block;">
+                            <li>
+                                老师
+                            </li>
+                            <li>
+                                学生
+                            </li>
+                        </ul>
+                    </div> 
+                </section>
+                <button class="buttonClick" @click="nextpage2()">下一步</button>
+                </div>
+                <div class="page" v-if="isShow_page2">
+                    <section class="page2">
+                        <div class="question">
+                            <div class="title">
+                                <span class="answerTitle">您所教授的相关课程:</span> 
+                            </div>
+                        <textarea cols="60" rows="5"></textarea>
+                        </div>
+                        <div class="question">
+                            <div class="title">
+                                <span class="answerTitle">您辅导学生参加过的比赛（请注明比赛名称、参加时间和获奖名次):</span> 
+                            </div>
+                        <textarea cols="60" rows="5"></textarea>
+                       </div> 
+                    </section>
+                    <div style="display: flex;flex-direction: row;">
+                        <button class="up_button">上一步</button>
+                        <button class="down_button">下一步</button>
+                    </div>
+                </div>
+                <div class="page" v-if="isShow_page3">
+                    <section class="page3">
+                        <div class="question">
+                            <div class="title">
+                                <span class="answerTitle">在读年级:</span> 
+                            </div>
+                        <input type="text"/>
+                        </div>
+                        <div class="question">
+                            <div class="title">
+                                <span class="answerTitle">报名来源:</span>
+                            </div>
+                            <ul>
+                                <li>
+                                    教师推荐
+                                </li>
+                                <li>
+                                    同学推荐
+                                </li>
+                                <li>
+                                    其他途径
+                                </li>
+                            </ul>
+                        </div> 
+                        <div class="question">
+                            <div class="title">
+                                <span class="answerTitle">上过哪些与“一生一芯”计划相关的课程，如数字电路、组成原理、体系结构等:</span> 
+                            </div>
+                        <textarea cols="67" rows="5"></textarea>
+                       </div> 
+                    </section>
+                    <div style="display: flex;flex-direction: row;">
+                        <button class="up_button">上一步</button>
+                        <button class="down_button">下一步</button>
+                    </div>
+                </div>
+
+                <div class="page" v-if="isShow_page4">
+                    <section class="page4">
+                        <div class="question">
+                            <div class="title">
+                                <span class="answerTitle">对“一生一芯”计划的哪些部分比较感兴趣 :</span> 
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="structure" value="体系结构设计">
+                                <label for="structure">体系结构设计</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="rtl" value="RTL开发和验证">
+                                <label for="rtl">RTL开发和验证</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="soc" value="SoC集成和验证">
+                                <label for="soc">SoC集成和验证</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="ic" value="IC后端设计">
+                                <label for="ic">IC后端设计</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" id="etc" value="其他" >
+                                <label for="etc">其他</label>
+                                <input type="text"/>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="title">
+                                <span class="answerTitle">参加“一生一芯”计划预期想要获得什么样的提升和成果:</span> 
+                            </div>
+                            <textarea cols="82" rows="5"></textarea>
+                       </div> 
+                       <div class="question">
+                        <div class="title">
+                            <span class="answerTitle">请上传简历，或发送简历到 opensource-talents@pcl.ac.cn，格式为【一生一芯+名字+学校】:</span>
+                        </div>
+                        <div class="upload">
+                            <i></i>
+                            <span>选择文件(最大限30M)</span>
+                        </div>
+                    </div>
+                    </section>
+                    <div style="display: flex;flex-direction: row;">
+                        <button class="up_button">上一步</button>
+                        <button class="down_button">提交</button>
+                    </div>
+                </div>
+
+
+                
+            </div>
+        </div>
+    </div>
+
+
+    <script src='./js/vue.js'></script>
+    <script src="index.js"></script>
+</body>
+</html>

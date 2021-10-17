@@ -1,0 +1,192 @@
+@import "./css/accent.css";
+html,
+body{
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;   
+}
+
+/* questionnaire style  */
+#questionnaire{
+    width: 100%;
+    height: 100%;
+    background-color: var(--bodybgc);
+}
+.main{
+    width: 58em;
+    background-color: var(--mainbgc);
+    margin: auto;
+}
+header h1{
+    color: var(--accent);
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 1em;
+}
+header p{
+    text-align: center;
+    color: var(--fontcolor);
+    padding: 2em 0 1em;
+    border-bottom: 1px dashed var(--dashcolor);
+}
+.title .star{
+    color: var(--red);
+}
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3.5em 0;
+}
+.page1,.page2,.page3,.page4{
+    box-shadow: 0 0.25em 0.5em 0 var(--shadow);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+.page1,.page2,.page3,.page4:hover{
+    box-shadow: 0 0.5em 1em 0 var(--shadow);
+}
+
+/* page1 style */
+.page1 .question{
+    margin: 1.7em 6em 1.7em 4em;
+}
+.page1 .question .title{
+    display: inline-block;
+    text-align-last: justify;
+    color: var(--fontcolor);
+    margin: 0.25em 2em 0.25em 1em;
+}
+.page1 .question .inputContent{
+    width: 18em;
+    height: 2em;
+    border: 1px solid var(--fontcolor);
+    border-radius: 2px;
+}
+.page1 .question .inputContent:focus{
+    border: 1px solid var(--accent);
+}
+.page1 .question ul li{
+    display: inline-block;
+    width: 6.875em; 
+    border: 1px solid var(--fontcolor);
+    border-radius: 2px;
+    color: var(--fontcolor);
+    text-align: center;
+}
+.page1 .question ul li:hover{
+    cursor: pointer;
+    border: 1px solid var(--accent);
+}
+.page1 .question ul li:first-child{
+    margin-right: 1em;
+}
+.buttonClick{
+    width: 10em;
+    height: 3em;
+    font-size: 1em;
+    color: var(--mainbgc);
+    background-color: var(--accent);
+    margin: 3.5em 0;
+    border-radius: 3px;
+}
+
+/* page2 style */
+.page2{
+    padding: 1em 3em;
+}
+.page2 .question{
+    margin: 1em 0 1.8em 0;
+}
+.page2 .title{
+    color: var(--fontcolor);
+    margin: 0.25em 0;
+}
+.up_button,.down_button{
+    width: 7em;
+    height: 3em;
+    font-size: 1em;
+    color: var(--mainbgc);
+    background-color: var(--accent);
+    margin: 2.5em 2em;
+    border-radius: 3px;
+}
+
+/* page3 style */
+.page{
+    padding: 1em 0;
+}
+.page3{
+    padding: 1em 3em;
+}
+.page3 .question{
+    margin: 1em 0 1.5em 0;
+}
+.page3 .title{
+    color: var(--fontcolor);
+    margin: 0.2em 0;
+}
+.page3 ul li{
+    display: inline-block;
+    margin-right: 2em;
+    width: 6.875em; 
+    border: 1px solid var(--fontcolor);
+    border-radius: 2px;
+    color: var(--fontcolor);
+    text-align: center;
+}
+.page3 .question ul li:hover{
+    cursor: pointer;
+    border: 1px solid var(--accent);
+}
+
+/* page4 style */
+.page4{
+    padding: 0 3em;
+}
+.page4 .question{
+    margin: 1em 0 1.5em 0;
+}
+.page4 .title{
+    color: var(--fontcolor);
+    margin: 0.2em 0;
+}
+.page4 .upload{
+    position: relative;
+    width: 100%;
+    height: 2.5em;
+    cursor: pointer;
+    display: inline-block;
+    border:1px solid var(--bordercolor);
+}
+.page4 .upload i{
+    position: absolute;
+    top:50%;
+    left: 39%;
+    transform: translate(-50%,-50%);
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    background: url(./img/upload.png) no-repeat;
+}
+.page4 .upload span{
+    position: absolute;
+    top:50%;
+    left: 55%;
+    transform: translate(-50%,-50%);
+    color: var(--dashcolor);
+}
+.option{
+    color: var(--fontcolor);
+    margin: 0.25em 1em;
+}
+
